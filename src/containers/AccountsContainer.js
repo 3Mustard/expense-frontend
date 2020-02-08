@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
+//Components
 import AccountsIndex from '../components/AccountsIndex';
 import AccountForm from '../components/AccountForm';
 
+//functions
+import {fetchAccounts} from '../actions/fetchAccounts';
+
 class AccountsContainer extends Component {
+
+    componentDidMount() {
+        this.props.fetchAccounts();
+    }
 
     render () {
         return (
@@ -14,4 +24,11 @@ class AccountsContainer extends Component {
     }
 }
 
-export default AccountsContainer;
+//state is from redux store, see accountReducer.js
+const mapStateToProps = state => {
+    return {
+        accounts: state.accounts
+    };
+}
+
+export default connect(mapStateToProps, {fetchAccounts})(AccountsContainer);
