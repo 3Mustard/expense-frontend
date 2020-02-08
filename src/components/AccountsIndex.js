@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AccountsIndex = (props) => {
+const AccountsIndex = ({accounts}) => {
     return (
         <div>
-            AccountsIndex
+            {accounts.map(account => <li key={account.id}>{account.name} - {account.balance}</li> )}
         </div>
     );
 }
