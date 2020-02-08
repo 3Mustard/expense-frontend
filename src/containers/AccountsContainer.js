@@ -18,7 +18,7 @@ class AccountsContainer extends Component {
         return (
             <div>
                 <AccountForm/>
-                <AccountsIndex/>                
+                <AccountsIndex accounts={this.props.accounts}/>                
             </div>
         );
     }

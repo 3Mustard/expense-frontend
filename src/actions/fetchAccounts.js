@@ -1,5 +1,5 @@
 export function fetchAccounts() {
-    //dispatch sends to accountReducer as action/action.type/action.payload
+    //dispatch sends results to accountReducer.js as action/action.type/action.payload
     return (dispatch) => {
         fetch('http://localhost:3000/api/v1/accounts')
         .then(response => response.json())
