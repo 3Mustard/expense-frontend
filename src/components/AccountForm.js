@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import addAccount from '../actions/addAccount';
 
 class AccountForm extends Component {
 
@@ -13,8 +15,9 @@ class AccountForm extends Component {
         });
     }
 
-    handleSubmit = () => {
-        
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.addAccount(this.state);
     }
 
     render() {
@@ -32,4 +35,5 @@ class AccountForm extends Component {
     }
 } 
 
-export default AccountForm;
+
+export default connect(null, {addAccount})(AccountForm);

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'; //allows dispatch to be called from the function passed in as the second param to connect()
 import { Provider } from 'react-redux';
 import accountReducer from './reducers/accountReducer';
 
