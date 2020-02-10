@@ -18,8 +18,12 @@ class AccountForm extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.addAccount(this.state);
+        e.preventDefault(); //prevent page reload
+        this.props.addAccount(this.state); //add new account to db
+        this.setState({ //reset state for new form submission
+            name: '',
+            balance: ''
+        });
     }
 
     render() {
