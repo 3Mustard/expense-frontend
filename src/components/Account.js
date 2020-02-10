@@ -1,10 +1,11 @@
 import React from 'react';
 
-const Account = ({account}) => {
+const Account = (props) => {
+    let account = props.accounts[props.match.params.id - 1];
 
     return (
         <li>
-            {account.name} - {account.balance}
+            {account ? account.name : null} - {account? account.balance : null}
         </li>
     );
 }

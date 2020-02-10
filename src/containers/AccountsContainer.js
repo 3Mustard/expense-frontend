@@ -8,6 +8,7 @@ import AccountForm from '../components/AccountForm';
 
 //functions
 import {fetchAccounts} from '../actions/fetchAccounts';
+import Account from '../components/Account';
 
 class AccountsContainer extends Component {
 
@@ -20,7 +21,8 @@ class AccountsContainer extends Component {
         return (
             <div>
                 <Route path='/accounts/new' component={AccountForm}/>
-                <Route exact path='/accounts' render={() => <AccountsIndex accounts={this.props.accounts}/>}/>         
+                <Route path='/accounts/:id' render={(routerProps) => <Account {...routerProps} accounts={this.props.accounts}/>}/>      
+                <Route exact path='/accounts' render={(routerProps) => <AccountsIndex {...routerProps} accounts={this.props.accounts}/>}/>   
             </div>
         );
     }

@@ -4,7 +4,7 @@ import Account from './Account';
 const AccountsIndex = ({accounts}) => {
     return (
         <div>
-            {accounts.map(account => <div key={account.id}><Account account={account}/></div> )}
+            {accounts.map(account => <li key={account.id}><Account account={account}/></li> )}
         </div>
     );
 }
