@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import {Route} from 'react-router-dom';
 
 //Components
 import AccountsIndex from '../components/AccountsIndex';
@@ -14,11 +15,12 @@ class AccountsContainer extends Component {
         this.props.fetchAccounts();
     }
 
+    //use render when passing props to functional component 
     render () {
         return (
             <div>
-                <AccountForm/>
-                <AccountsIndex accounts={this.props.accounts}/>                
+                <Route path='/accounts/new' component={AccountForm}/>
+                <Route exact path='/accounts' render={() => <AccountsIndex accounts={this.props.accounts}/>}/>         
             </div>
         );
     }
