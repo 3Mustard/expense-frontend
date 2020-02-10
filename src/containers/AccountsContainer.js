@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 
 //Components
 import AccountsIndex from '../components/AccountsIndex';
@@ -20,9 +20,11 @@ class AccountsContainer extends Component {
     render () {
         return (
             <div>
-                <Route path='/accounts/new' component={AccountForm}/>
-                <Route path='/accounts/:id' render={(routerProps) => <Account {...routerProps} accounts={this.props.accounts}/>}/>      
-                <Route exact path='/accounts' render={(routerProps) => <AccountsIndex {...routerProps} accounts={this.props.accounts}/>}/>   
+                <Switch>
+                    <Route path='/accounts/new' component={AccountForm}/>
+                    <Route path='/accounts/:id' render={(routerProps) => <Account {...routerProps} accounts={this.props.accounts}/>}/>      
+                    <Route path='/accounts' render={(routerProps) => <AccountsIndex {...routerProps} accounts={this.props.accounts}/>}/>   
+                </Switch>
             </div>
         );
     }
